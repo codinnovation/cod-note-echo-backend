@@ -1,0 +1,7 @@
+packages:
+  - python312
+build:
+  - pip install -r requirements.txt
+ports:
+  - 6000
+command: python main.py
