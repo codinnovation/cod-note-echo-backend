@@ -10,6 +10,10 @@ openai.api_key = os.getenv("OPENAI_API_KEY_2")
 
 app = FastAPI()
 
+@app.get("/")
+def read_root():
+    return {"message": "Hello, World!"}
+
 # Define request body structure
 class TranscriptRequest(BaseModel):
     transcript: str
@@ -55,3 +59,6 @@ async def summarize_transcript(request: TranscriptRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error processing request: {str(e)}")
 
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=6000)
