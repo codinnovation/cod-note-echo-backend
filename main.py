@@ -3,6 +3,7 @@ from pydantic import BaseModel
 import openai
 import os
 from dotenv import load_dotenv
+import uvicorn
 
 # Load API key from environment variables
 load_dotenv()
